@@ -1,0 +1,44 @@
+py print vim.current.buffer.cursor
+py print vim.current.buffer.line
+py print vim.current.buffer.row
+py print vim.current.range
+py print vim.current.line
+map R
+Python
+Quick cat
+Quick
+%s/pandoc/cansicomment/g
+%s/cansicomment/cansiboxcomment/g
+46
+%s/irb/commnet/g
+%s/Irb/Commnet/g
+map Commentary
+map gcc
+%s/mmn/mm/g
+%s/commet/comment/g
+r! echo oi | comment -tc
+echo line('.')
+delete
+h :command-completion
+Comment oi
+Comment q
+Comment
+a = ["ss","eee","gggg"]
+a
+echo @a
+echo a.split('\n')
+Comment
+echo a
+let a = ["ss","eee","gggg"]
+h join()
+Comment box right center
+Comment -l
+echo getline('.')
+echo getline('.')| tr 'p' 'k'
+!echo getline('.')| tr 'p' 'k'
+exec "!echo ".getline('.')." | tr 'p' 'k'"
+'<,'>s/Hide/Comment/g
+exec "echo ".getline('.')."| tr 'p' 'k'"
+let a=6
+echo (a -1)
+

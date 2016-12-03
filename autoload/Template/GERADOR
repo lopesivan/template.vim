@@ -1,0 +1,2 @@
+new=make; cp java.vim  ${new}.vim;  sed "s/java/$new/g" -i ${new}.vim
+
