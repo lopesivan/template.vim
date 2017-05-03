@@ -26,10 +26,10 @@ function LoadTemplate(extension)
     if (a:extension == '') && ( &ft == "")
       let f = 'FileWithOutDefinitionType'
     else
-      if a:extension == ''
-        let f = &ft
-      else
+      if &ft == ''
         let f = a:extension
+      else
+        let f = &ft
       endif
     endif
 
@@ -39,6 +39,23 @@ function LoadTemplate(extension)
 
 endfunction
 
+function YMLTemplate(extension)
+
+    if (a:extension == '') && ( &ft == "")
+      let f = 'FileWithOutDefinitionType'
+    else
+      if &ft == ''
+        let f = a:extension
+      else
+        let f = &ft
+      endif
+    endif
+
+    "sem argumento
+    let functionName = 'Template#'.'cheetah'.'#LoadTemplate'
+    execute 'call '.functionName.'(f)'
+
+endfunction
 "-----------------------------------------------------------------------------
 let &cpo= s:keepcpo
 unlet s:keepcpo
