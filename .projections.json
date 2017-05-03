@@ -1,0 +1,15 @@
+{
+    "autoload/*.vim": {
+    "type": "load"
+    },
+
+    "autoload/Template/*.vim": {
+    "type": "autoload",
+    "skeleton": "iiiiii"
+    },
+
+    "plugin/*.vim": {
+    "type": "plugin"
+    }
+}
+
