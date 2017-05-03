@@ -1,6 +1,6 @@
 {
-    "autoload/*.vim": {
-    "type": "load"
+    "autoload/templates.vim": {
+    "type": "main"
     },
 
     "autoload/Template/*.vim": {
@@ -8,7 +8,7 @@
     "skeleton": "iiiiii"
     },
 
-    "plugin/*.vim": {
+    "plugin/template.vim": {
     "type": "plugin"
     }
 }
