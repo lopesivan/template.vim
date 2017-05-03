@@ -21,6 +21,20 @@ function templates#Set(path, filename, model, extension, filetype ) dict
   let s:filetype = a:filetype
 endfunction
 
+function templates#YMLCreate() dict
+  let s:template = expand('$HOME').'/.vim/templates/'.s:filetype.'/'.s:model.'.'.s:extension
+
+  if !empty(glob(s:template))
+    "execute 'e ' . d:filetype . '.yml'
+    let copy = 'cp '.s:template .' cheetah.yml'
+    call system(copy)
+    echo "Create cheetah File."
+  else
+    echoerr "File not find!"
+  endif
+
+endfunction
+
 function templates#Load() dict
   let s:template = expand('$HOME').'/.vim/templates/'.s:filetype.'/'.s:model.'.'.s:extension
 
@@ -66,7 +80,8 @@ function templates#New(path, filename, model, extension, filetype )
         \ 'Set':       function ('templates#Set'),
         \ 'Get':       function ('templates#Get'),
         \ 'Show':      function ('templates#Show'),
-        \ 'Load':      function ('templates#Load')
+        \ 'Load':      function ('templates#Load'),
+        \ 'YMLCreate': function ('templates#YMLCreate')
         \}
 
   return Retval
