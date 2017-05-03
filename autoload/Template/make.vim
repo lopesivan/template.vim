@@ -1,7 +1,7 @@
 function! Template#make#LoadTemplate()
   let path     = expand("%:h")
   let filename = expand("%:t:r")
-  let model    = "basic"
+  let model    = "skel"
   let extension= "mk"
   let filetype = "make"
 
