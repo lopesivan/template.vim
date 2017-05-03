@@ -27,20 +27,24 @@ function templates#Load() dict
   if !empty(glob(s:template))
     execute '%d'
     execute '0r '. s:template
-    " normal! Gdd
-    silent! %s/|n|/\=substitute(expand('%'),'.*\/', '', '')/g
-    silent! %s/|n%|/\=substitute(s:filename,'.*\/', '', '')/g
-    silent! %s/|d|/\=substitute(strftime('%c'),'.*\/', '', '')/g
-
-    silent! %s/|user.name|/\=substitute(system('git config user.name'), '\n$', '', '')/g
-    silent! %s/|user.email|/\=substitute(system('git config user.email'), '\n$', '', '')/g
-    silent! %s/|user.site|/\=substitute(system('git config user.site'), '\n$', '', '')/g
-
+    execute '$d'
     echo "Loaded template File."
   else
     echoerr "File not find!"
   endif
+
+  " normal! Gdd
+  silent! %s/|n|/\=substitute(expand('%'),'.*\/', '', '')/g
+  silent! %s/|n%|/\=substitute(s:filename,'.*\/', '', '')/g
+  silent! %s/|d|/\=substitute(strftime('%c'),'.*\/', '', '')/g
+
+  silent! %s/|user.name|/\=substitute(system('git config user.name'), '\n$', '', '')/g
+  " silent! %s/|user.email|/\=substitute(system('git config user.email'), '\n$', '', '')/g
+  silent! %s/|user.email|/\=substitute( substitute( substitute( system('git config user.email'), '\n$', '', ''), '\s(at)\s','@',''), '\s(dot)\s', '.', 'g')/g
+  silent! %s/|user.site|/\=substitute(system('git config user.site'), '\n$', '', '')/g
 endfunction
+
+"'git config --get user.email| sed -e "s/\s(at)\s/@/" -e "s/\s(dot)\s/./g"'
 
 " Costrutor
 """""""""""
