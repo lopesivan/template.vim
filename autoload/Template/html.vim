@@ -1,7 +1,7 @@
 function! Template#html#LoadTemplate()
   let path     = expand("%:h")
   let filename = expand("%:t:r")
-  let model    = "basic"
+  let model    = "skel"
   let extension= "html"
   let filetype = "html"
 
