@@ -5,7 +5,7 @@
 
     "autoload/Template/*.vim": {
     "type": "autoload",
-    "skeleton": "iiiiii"
+    "skeleton": "template_autoload"
     },
 
     "plugin/template.vim": {
