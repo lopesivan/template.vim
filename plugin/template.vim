@@ -22,16 +22,21 @@ set cpo&vim
 
 "-----------------------------------------------------------------------------
 function LoadTemplate(extension)
-    if a:extension == ''
-      let functionName = 'Template#'.&ft.'#LoadTemplate'
+
+    if (a:extension == '') && ( &ft == "")
+      let f = 'FileWithOutDefinitionType'
     else
-      let functionName = 'Template#'.a:extension.'#LoadTemplate'
+      if a:extension == ''
+        let f = &ft
+      else
+        let f = a:extension
+      endif
     endif
 
     "sem argumento
+    let functionName = 'Template#'.f.'#LoadTemplate'
     execute 'call '.functionName.'()'
-    "com argumento
-    "execute 'call '.functionName.'(a:extension)'
+
 endfunction
 
 "-----------------------------------------------------------------------------
