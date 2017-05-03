@@ -5,6 +5,9 @@ function! Template#json#LoadTemplate()
   let extension= "json"
   let filetype = "json"
 
+  if filename == ".projections"
+    let model = substitute(filename,'\.','','g')
+  endif
   let obj = templates#New(path, filename, model, extension, filetype)
   call obj.Load()
 endfunction
