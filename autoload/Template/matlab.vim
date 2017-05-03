@@ -1,7 +1,7 @@
-function! Template#m#LoadTemplate()
+function! Template#matlab#LoadTemplate()
   let path     = expand("%:h")
   let filename = expand("%:t:r")
-  let model    = "basic"
+  let model    = "skel"
   let extension= "m"
   let filetype = "matlab"
 
