@@ -23,6 +23,7 @@ endfunction
 
 function templates#YMLCreate() dict
   let s:template = expand('$HOME').'/.vim/templates/'.s:filetype.'/'.s:model.'.'.s:extension
+    echo s:template
 
   if !empty(glob(s:template))
     "execute 'e ' . d:filetype . '.yml'
@@ -36,7 +37,12 @@ function templates#YMLCreate() dict
 endfunction
 
 function templates#Load() dict
-  let s:template = expand('$HOME').'/.vim/templates/'.s:filetype.'/'.s:model.'.'.s:extension
+
+  if s:extension == ''
+    let s:template = expand('$HOME').'/.vim/templates/'.s:filetype.'/'.s:model.'.'.s:filetype
+  else
+    let s:template = expand('$HOME').'/.vim/templates/'.s:filetype.'/'.s:model.'.'.s:extension
+  endif
 
   if !empty(glob(s:template))
     execute '%d'
