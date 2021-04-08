@@ -34,9 +34,24 @@ function LoadTemplate(extension)
     endif
 
     "sem argumento
-    let functionName = 'Template#'.f.'#LoadTemplate'
-    execute 'call '.functionName.'()'
+    let functionName = 'Template#'.f.'#LoadTemplate()'
+    " /home/ivan/.config/nvim/site/pack/packer/start/template.vim/autoload/Template
+    let plugin_name = "template.vim"
+    let script_name = expand('$HOME').'/.config/nvim/site/pack/packer/start/'.plugin_name.'/autoload/Template/'.f.'.vim'
 
+    if filereadable(expand(script_name))
+      execute 'call '.functionName
+    else
+      echo "Função ".functionName." não existe"
+      let path     = expand("%:h")
+      let filename = expand("%:t:r")
+      let model    = "skel"
+      let extension= f
+      let filetype = f
+
+      let obj = templates#New(path, filename, model, extension, filetype)
+      call obj.Load()
+    endif
 endfunction
 
 function YMLTemplate(extension)
