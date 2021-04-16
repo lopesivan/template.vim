@@ -5,6 +5,10 @@ function! Template#FileWithOutDefinitionType#LoadTemplate()
   let extension= "fwodt"
   let filetype = "FileWithOutDefinitionType"
 
+  " if filename == "INSTALL"
+  "   let model = filename
+  " endif
+
   let obj = templates#New(path, filename, model, extension, filetype)
   call obj.Load()
 
